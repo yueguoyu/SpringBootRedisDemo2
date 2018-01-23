@@ -1,0 +1,43 @@
+spring:
+       datasource:
+                  name: springbd
+                  url: jdbc:mysql://localhost:3306/ygy1?useUnicode=true&characterEncoding=utf8
+                  username: root
+                  password: ygy
+                  # 使用druid数据源
+                  type: com.alibaba.druid.pool.DruidDataSource
+                  driver-class-name: com.mysql.jdbc.Driver
+                  filters: stat
+                  maxActive: 20
+                  initialSize: 1
+                  maxWait: 60000
+                  minIdle: 1
+                  timeBetweenEvictionRunsMillis: 60000
+                  minEvictableIdleTimeMillis: 300000
+                  validationQuery: select 'x'
+                  testWhileIdle: true
+                  testOnBorrow: false
+                  testOnReturn: false
+                  poolPreparedStatements: true
+                  maxOpenPreparedStatements: 20
+       thymeleaf:
+                  cache: false
+       redis:
+         database: 0
+         host: 127.0.0.1
+         port: 6379
+         pool:
+           max-active: 8
+           max-wait: -1
+           max-idle: 8
+           min-idle: 0
+         timeout: 0
+mybatis:
+       mapper-locations: classpath:mapping/*.xml
+       type-aliases-package:
+       configuration:
+           log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+debug: true
+
+
+
